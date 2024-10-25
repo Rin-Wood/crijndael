@@ -419,7 +419,7 @@ static PyObject* py_decrypt(PyObject* self, PyObject* args, PyObject *kwargs) {
     return result;
 }
 
-static PyMethodDef CRijndealMethods[] = {
+static PyMethodDef CRijndaelMethods[] = {
     {"decrypt", (PyCFunction)py_decrypt, METH_VARARGS | METH_KEYWORDS, "Decrypt data"},
     {NULL, NULL, 0, NULL}
 };
