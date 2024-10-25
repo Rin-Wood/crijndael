@@ -419,19 +419,19 @@ static PyObject* py_decrypt(PyObject* self, PyObject* args, PyObject *kwargs) {
     return result;
 }
 
-static PyMethodDef RijndealMethods[] = {
+static PyMethodDef CRijndealMethods[] = {
     {"decrypt", (PyCFunction)py_decrypt, METH_VARARGS | METH_KEYWORDS, "Decrypt data"},
     {NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef rijndealmodule = {
+static struct PyModuleDef crijndaelmodule = {
     PyModuleDef_HEAD_INIT,
-    "rijndeal",
+    "crijndael",
     NULL,
     -1,
-    RijndealMethods
+    CRijndaelMethods
 };
 
-PyMODINIT_FUNC PyInit_rijndeal(void) {
-    return PyModule_Create(&rijndealmodule);
+PyMODINIT_FUNC PyInit_crijndael(void) {
+    return PyModule_Create(&crijndaelmodule);
 }
