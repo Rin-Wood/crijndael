@@ -16,8 +16,6 @@ pip install crijndael
 ```
 
 ## Usage
-Here's how to use `crijndael` for decryption:
-
 ```python
 import crijndael
 
