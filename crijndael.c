@@ -342,7 +342,7 @@ static inline void gkey(int nb, int nk, byte *key){
         rkey[j - N + Nb] = fkey[j];
 }
 
-static inline void encrypt(byte *buff){
+static inline void encryptData(byte *buff){
     int i, j, k, m;
     uint a[8];
     uint b[8];
@@ -381,7 +381,7 @@ static inline void encrypt(byte *buff){
     }
 }
 
-static inline void decrypt(byte *buff){
+static inline void decryptData(byte *buff){
     int i, j, k, m;
     uint a[8];
     uint b[8];
@@ -448,19 +448,18 @@ static inline byte* encryptaes(const byte *data, const byte *key, const byte *iv
             for (j = 0; j < bCount; j++)
                 encData[i + j] ^= vectorBlock[j];
 
-            encrypt(encData + i);
+            encryptData(encData + i);
 
             memcpy(vectorBlock, encData + i, bCount);
         }
     } else {
         for (i = 0; i < tempLen; i += bCount)
-            encrypt(encData + i);
+            encryptData(encData + i);
     }
 
     *encLen = tempLen;
     return encData;
 }
-
 
 static inline byte* decryptaes(const byte *data, const byte *key, const byte *iv, int encLen, int keyLen, int ivLen, int blockSize, int keySize, int mode, int* decLen) {
     int i, j, nb, nk, bCount, kCount;
@@ -486,14 +485,14 @@ static inline byte* decryptaes(const byte *data, const byte *key, const byte *iv
     if (mode == 0) {
         for (i = 0; i < encLen; i += bCount) {
             memcpy(temp, decData + i, bCount);
-            decrypt(decData + i);
+            decryptData(decData + i);
             for (j = 0; j < bCount; j++)
                 decData[i + j] ^= vectorBlock[j];
             memcpy(vectorBlock, temp, bCount);
         }
     } else {
         for (i = 0; i < encLen; i += bCount) {
-            decrypt(decData + i);
+            decryptData(decData + i);
         }
     }
 
@@ -558,4 +557,5 @@ static struct PyModuleDef crijndaelmodule = {
 PyMODINIT_FUNC PyInit_crijndael(void) {
     return PyModule_Create(&crijndaelmodule);
 }
+
 
