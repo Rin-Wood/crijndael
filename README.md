@@ -1,10 +1,10 @@
 # crijndael
 
-`crijndael` is a Python package for decrypting data, using a custom AES-256 decryption algorithm implemented in C.
+`crijndael` is a Python package for encrypting/decrypting data, using the AES-256 algorithm implemented in C.
 
 ## Features
 
-- Provides efficient AES-256 decryption functionality, based on C implementation.
+- Provides efficient AES-256 encrypting/decryption functionality, based on C implementation.
 - Supports Python 3.6+
 
 ## Installation
@@ -28,3 +28,4 @@ mode = 0
 # 0 - CBC, 1 - ECB
 
 dec = crijndael.decrypt(data, key, iv, blocksize, keysize, mode)
+enc = crijndael.encrypt(data, key, iv, blocksize, keysize, mode)
