@@ -9,7 +9,7 @@ setup(
     author='wood',
     author_email='miraclerinwood@gmail.com',
     url='https://github.com/Rin-Wood/crijndael',
-    description="AES-256 Decryption",
+    description="AES-256 Encryption/Decryption",
     long_description=open('README.md', 'rb').read().decode('utf8'),
 	long_description_content_type='text/markdown',
     license="BSD",
