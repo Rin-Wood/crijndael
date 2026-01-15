@@ -20,7 +20,7 @@ jobs:
             archs: "x86"
           - os: windows-2022
             archs: "ARM64"
-          - os: macos-13
+          - os: macos-15
             archs: "x86_64, arm64"
 
     steps:
